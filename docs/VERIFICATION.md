@@ -18,7 +18,11 @@ Development date: 17 November 2026. Offline suite: 27 passed (plus six subtests)
 - Release archives were extracted and their entrypoints executed with Python isolated mode and site packages disabled. A fresh-cache guide lookup also succeeded using only the bundled PDF reader. Archives include the dependency license.
 - The private ChatGPT plugin was saved through Plugin Creator and its skill, helpers and bundled dependency read back from the registered release. Consumer checks exercised all five commands from the built Claude skill.
 
-The helpers are tested locally. Claude account upload and a real ChatGPT/Claude
-conversation invoking the installed skill still need host-level confirmation;
+The installed Codex plugin's own packaged entrypoint was also exercised in this
+session: live spelling and n-rule suggestions, LOD entry lookup, rule search and
+numbered rule retrieval all returned successful structured responses.
+
+Claude account upload and a real ChatGPT web/Claude conversation automatically
+invoking the installed skill still need host-level confirmation;
 file validation and private plugin creation alone do not prove that every host
 allows outbound networking. No hosted backend is required or provisioned.

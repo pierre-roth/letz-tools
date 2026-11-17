@@ -10,10 +10,16 @@
     "developerName": "Marc Roth",
     "displayName": "LëtzTools",
     "longDescription": "Write, translate and improve Luxembourgish emails and documents with live spelling checks, the official LOD dictionary and source-linked orthography rules. No separate account, API key or LëtzTools server.",
-    "shortDescription": "Better Luxembourgish writing"
+    "shortDescription": "Better Luxembourgish writing",
+    "logo": "./skills/luxembourgish-writing/assets/letztools-icon-on-light.png",
+    "logoDark": "./skills/luxembourgish-writing/assets/letztools-icon-on-dark.png",
+    "composerIcon": "./skills/luxembourgish-writing/assets/letztools-icon-on-light.png",
+    "composerIconDark": "./skills/luxembourgish-writing/assets/letztools-icon-on-dark.png",
+    "brandColor": "#2459cf",
+    "brandColorDark": "#a0bfff"
   },
   "name": "letz-tools",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Luxembourgish writing help with spellchecker.lu, LOD and the official orthography guide, without a hosted backend.",
   "author": {
     "name": "Marc Roth",

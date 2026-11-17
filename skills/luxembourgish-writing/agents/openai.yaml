@@ -1,5 +1,8 @@
 interface:
   display_name: "LëtzTools"
+  icon_small: "./assets/letztools-icon-on-light-48.png"
+  icon_large: "./assets/letztools-icon-on-light.svg"
+  brand_color: "#2459cf"
   short_description: "Write better Luxembourgish with official sources"
   default_prompt: "Use $luxembourgish-writing to write or improve this Luxembourgish text, checking spelling, LOD usage and relevant official orthography rules."
 policy:

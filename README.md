@@ -1,3 +1,8 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="skills/luxembourgish-writing/assets/letztools-lockup-on-dark.svg">
+  <img src="skills/luxembourgish-writing/assets/letztools-lockup-on-light.svg" width="380" alt="LëtzTools">
+</picture>
+
 # LëtzTools
 
 Write, translate and improve Luxembourgish in ChatGPT or Claude, with help from
@@ -89,15 +94,14 @@ license. Neither archive contains the orthography book, source captures, test
 fixtures, credentials or development environments. [Verification](docs/VERIFICATION.md)
 distinguishes tested helpers from host installation testing.
 
-## Design handoff
+## Branding
 
-The shared Lëtz project design will be supplied later. Please provide:
+Uses the supplied LëtzInitiative family artwork, unchanged, with separate light
+and dark icons and lockups. The shared icon is distinguished by the visible
+LëtzTools name. UI accent colours follow the supplied design tokens; logo red and
+blue remain fixed. Wordmarks are vector lettering and require no installed font.
 
-- An SVG icon master and transparent 512×512 PNG, legible at 24–48 px. Include a
-  dark-background version if needed.
-- A “LëtzTools” wordmark using the shared project-family treatment.
-- Exact colour hex values and light/dark usage guidance.
-- Font names and fallback fonts, with usable assets/licensing where applicable.
-
-No separate app screens or mobile mockups are needed for this version. It lives
-inside the chat host's interface. Branding is optional for functional installation.
+Source artwork and guidance are under
+[`skills/luxembourgish-writing/assets`](skills/luxembourgish-writing/assets).
+Only the LëtzTools assets and common guidance were copied from the supplied
+`letz-brand-kit.zip`; the other project identities are not packaged here.
