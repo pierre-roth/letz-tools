@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
-"""Build self-contained ChatGPT plugin and Claude skill from one source tree."""
+"""Build ChatGPT plugin, Claude plugin and Claude skill archives from one source tree."""
 from __future__ import annotations
 
-import importlib.metadata
 import json
 from pathlib import Path
 import shutil
@@ -37,34 +36,45 @@ def archive(source, target):
     print(f'{target.relative_to(ROOT)} ({target.stat().st_size:,} bytes)')
 
 
+def check_vendor():
+    vendor = SKILL / 'scripts' / 'vendor'
+    version = (vendor / 'pypdf' / '_version.py').read_text(encoding='utf-8')
+    if "'7.1.0'" not in version and '"7.1.0"' not in version:
+        raise SystemExit('Vendored pypdf is not the tested 7.1.0; run tools/vendor_pypdf.py.')
+    if not (vendor / 'PYPDF-LICENSE.txt').is_file():
+        raise SystemExit('Missing pypdf license; do not distribute without it.')
+
+
 def main():
-    import pypdf
-    # Keep the tested reader version explicit; upgrades are a maintainer action.
-    if importlib.metadata.version('pypdf') != '7.1.0':
-        raise SystemExit('Build with the tested pypdf==7.1.0 dependency.')
+    # The skill, including its vendored PDF reader, is tracked in git and used
+    # unchanged by every package: the Claude marketplace installs it straight
+    # from the repository, so builds must not add files the repository lacks.
+    check_vendor()
     stage = ROOT / 'build' / 'packages'
     if stage.exists():
         shutil.rmtree(stage)
+
     plugin = stage / 'chatgpt'
-    skill = plugin / 'skills' / SKILL.name
-    copy_tree(SKILL, skill)
-    vendor = skill / 'scripts' / 'vendor'
-    copy_tree(Path(pypdf.__file__).parent, vendor / 'pypdf')
-    dist = importlib.metadata.distribution('pypdf')
-    license_files = [f for f in dist.files if 'license' in str(f).lower() and f.name.lower() in {'license', 'license.txt', 'license.md'}]
-    if not license_files:
-        raise SystemExit('Missing pypdf license; do not distribute without it.')
-    for index, path in enumerate(license_files):
-        shutil.copyfile(dist.locate_file(path), vendor / ('PYPDF-LICENSE' + (f'-{index}' if index else '') + '.txt'))
-    (vendor / 'README.txt').write_text('pypdf 7.1.0, https://pypi.org/project/pypdf/7.1.0/\nBundled for local extraction of the public orthography PDF.\nSee PYPDF-LICENSE.txt; no orthography book text is bundled.\n', encoding='utf-8')
+    copy_tree(SKILL, plugin / 'skills' / SKILL.name)
     manifest = json.loads((ROOT / 'plugin.json').read_text())
     (plugin / 'plugin.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     copy_tree(ROOT / '.codex-plugin', plugin / '.codex-plugin')
     copy_tree(ROOT / 'assets', plugin / 'assets')
+
+    # Claude plugin for Customize > Plugins > upload (same layout as the marketplace install).
+    claude_plugin = stage / 'claude-plugin'
+    copy_tree(SKILL, claude_plugin / 'skills' / SKILL.name)
+    shutil.copytree(ROOT / '.claude-plugin', claude_plugin / '.claude-plugin', ignore=shutil.ignore_patterns('marketplace.json', '.DS_Store'))
+    copy_tree(ROOT / 'assets', claude_plugin / 'assets')
+    shutil.copyfile(ROOT / 'README.md', claude_plugin / 'README.md')
+
+    # Single skill for Customize > Skills upload.
     claude = stage / 'claude'
-    copy_tree(skill, claude / SKILL.name)
+    copy_tree(SKILL, claude / SKILL.name)
+
     (ROOT / 'dist').mkdir(exist_ok=True)
     archive(plugin, ROOT / 'dist' / 'letz-tools-chatgpt.zip')
+    archive(claude_plugin, ROOT / 'dist' / 'letz-tools-claude-plugin.zip')
     archive(claude, ROOT / 'dist' / 'letz-tools-claude.zip')
 
 

@@ -11,6 +11,7 @@ import json
 import math
 import re
 import tempfile
+import sys
 import time
 import unicodedata
 from pathlib import Path
@@ -159,6 +160,9 @@ class OrthographyGuide:
             self._retrieved_at = cached['retrieved_at']
             return
         try:
+            if sys.version_info < (3, 10):
+                # The bundled PDF reader needs 3.10+; a saved index still works above.
+                raise SourceError('Reading the official guide needs Python 3.10 or newer. Open the official guide instead.', source=LANDING_URL)
             data = self.http.get_bytes(PDF_URL)
             sections = _extract_pdf(data)
         except (SourceError, OSError) as error:

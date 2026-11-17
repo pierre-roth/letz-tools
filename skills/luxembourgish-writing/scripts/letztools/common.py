@@ -2,9 +2,30 @@
 from __future__ import annotations
 
 import json
+import os
+import ssl
 import time
 import urllib.error
 import urllib.request
+
+# Operating-system CA bundles, used only when Python itself ships none (for
+# example a python.org macOS build whose "Install Certificates" step never ran).
+SYSTEM_CA_BUNDLES = ('/etc/ssl/cert.pem', '/etc/ssl/certs/ca-certificates.crt',
+                     '/etc/pki/tls/certs/ca-bundle.crt')
+
+
+def tls_context() -> ssl.SSLContext:
+    """Default verifying context, falling back to the OS bundle if Python has no CAs."""
+    context = ssl.create_default_context()
+    if context.cert_store_stats()['x509_ca'] == 0:
+        paths = ssl.get_default_verify_paths()
+        capath = paths.capath or ''
+        if not (paths.cafile and os.path.isfile(paths.cafile)) and not (os.path.isdir(capath) and os.listdir(capath)):
+            for bundle in SYSTEM_CA_BUNDLES:
+                if os.path.isfile(bundle):
+                    context.load_verify_locations(cafile=bundle)
+                    break
+    return context
 
 
 class SourceError(RuntimeError):
@@ -20,6 +41,7 @@ class HttpClient:
         self.timeout = timeout
         self.interval = interval
         self._last_request = 0.0
+        self._tls = None
 
     def _request(self, url: str, payload=None) -> bytes:
         if not url.startswith('https://'):
@@ -36,13 +58,19 @@ class HttpClient:
         request = urllib.request.Request(url, data=body, headers=headers)
         try:
             self._last_request = time.monotonic()
-            with urllib.request.urlopen(request, timeout=self.timeout) as response:
+            if self._tls is None:
+                self._tls = tls_context()
+            with urllib.request.urlopen(request, timeout=self.timeout, context=self._tls) as response:
                 return response.read(20_000_001)
         except urllib.error.HTTPError as error:
             message = ('The official service is busy; try again later.' if error.code == 429
                        else f'The official service returned HTTP {error.code}.')
             raise SourceError(message, source=url, status=error.code) from None
-        except (urllib.error.URLError, TimeoutError, OSError):
+        except urllib.error.URLError as error:
+            if isinstance(error.reason, ssl.SSLCertVerificationError):
+                raise SourceError('The secure connection to the official service could not be verified. No check has been completed.', source=url) from None
+            raise SourceError('The official service could not be reached. No check has been completed.', source=url) from None
+        except (TimeoutError, OSError):
             raise SourceError('The official service could not be reached. No check has been completed.', source=url) from None
 
     def get_bytes(self, url: str) -> bytes:

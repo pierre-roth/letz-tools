@@ -17,7 +17,7 @@ Help the user produce good Luxembourgish without requiring technical commands. U
 
 ## Using the bundled helpers
 
-Run Python through the host's code execution / terminal tool. Locate this skill's directory and use the actual absolute path below; working-directory assumptions vary by host. No pip installation, API key or account is needed. Downloadable packages include the PDF reader.
+Run Python 3.10+ through the host's code execution / terminal tool. Use this skill's actual directory: the base directory the host reports when it loads the skill, or else search for `luxembourgish-writing/scripts/letztools.py`. Working-directory assumptions vary by host. No pip installation, API key or account is needed: the PDF reader is bundled in `scripts/vendor`.
 
 ```text
 python /absolute/path/to/luxembourgish-writing/scripts/letztools.py check --file /path/to/draft.txt
@@ -40,6 +40,8 @@ Use a UTF-8 temporary file for office text instead of interpolating it into a sh
 ## If execution or network access is unavailable
 
 Use the host's browsing tools to consult [spellchecker.lu](https://spellchecker.lu), [LOD](https://lod.lu) and the [official guide](https://zls.gouvernement.lu/lb/orthographe.html), if supported. Tell the user when you could not perform a live check. Do not invent tool results, dictionary entries or section quotations. Installation and network permission depend on the host; there is no hosted LëtzTools backend to connect to.
+
+The helpers only need to reach `lod.lu` (spelling and dictionary) and `zls.gouvernement.lu` (orthography guide). If the code environment blocks them, say so once, in plain words, after giving your best text: in Claude, the user or their administrator can allow these two sites in Settings › Capabilities (network access for code); in ChatGPT, the workspace's network settings for code apply. Do not repeat this advice in every answer, and do not ask the user to run commands.
 
 ## Scope and discretion
 
