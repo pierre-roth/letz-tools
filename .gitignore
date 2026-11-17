@@ -9,3 +9,4 @@ output/
 *.egg-info/
 
 /AGENTS.md
+/.claude/settings.local.json
