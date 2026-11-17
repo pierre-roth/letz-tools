@@ -7,7 +7,7 @@
       "Schreif mir eng professionell E-Mail op Lëtzebuergesch.",
       "Erklär dës Schreifweis mat enger offizieller Quell."
     ],
-    "developerName": "Marc Roth",
+    "developerName": "Pierre Roth",
     "displayName": "LëtzTools",
     "longDescription": "Write, translate and improve Luxembourgish emails and documents with live spelling checks, the official LOD dictionary and source-linked orthography rules. No separate account, API key or LëtzTools server.",
     "shortDescription": "Better Luxembourgish writing",
@@ -19,11 +19,10 @@
     "brandColorDark": "#a0bfff"
   },
   "name": "letz-tools",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Luxembourgish writing help with spellchecker.lu, LOD and the official orthography guide, without a hosted backend.",
   "author": {
-    "name": "Marc Roth",
-    "email": "marcroth@pt.lu"
+    "name": "Pierre Roth"
   },
   "keywords": [],
   "skills": "./skills"

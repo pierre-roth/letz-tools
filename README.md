@@ -10,7 +10,7 @@ the official orthography guide, all from your conversation.
 
 ## Install
 
-- **ChatGPT:** [Add LëtzTools](https://chatgpt.com/plugins/plugins_6afc7e87fdb88191add1d3649a542486).
+- **ChatGPT:** public plugin release coming soon.
 - **Claude (chat and Cowork):** open **Customize › Plugins**, choose **Add marketplace**,
   enter `pierre-roth/letz-tools`, then install **LëtzTools**. On Team and Enterprise
   plans, an owner can add it for everyone under **Organization settings › Plugins & skills**.

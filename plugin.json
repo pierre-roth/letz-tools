@@ -1,8 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "author": {
-    "email": "marcroth@pt.lu",
-    "name": "Marc Roth"
+    "name": "Pierre Roth"
   },
   "description": "Luxembourgish writing help with spellchecker.lu, LOD and the official orthography guide, without a hosted backend.",
   "extensions": {
@@ -15,7 +14,7 @@
           "Schreif mir eng professionell E-Mail op Lëtzebuergesch.",
           "Erklär dës Schreifweis mat enger offizieller Quell."
         ],
-        "developerName": "Marc Roth",
+        "developerName": "Pierre Roth",
         "displayName": "LëtzTools",
         "longDescription": "Write, translate and improve Luxembourgish emails and documents with live spelling checks, the official LOD dictionary and source-linked orthography rules. No separate account, API key or LëtzTools server.",
         "shortDescription": "Better Luxembourgish writing",
@@ -29,5 +28,5 @@
     }
   },
   "name": "letz-tools",
-  "version": "0.1.4"
+  "version": "0.1.5"
 }

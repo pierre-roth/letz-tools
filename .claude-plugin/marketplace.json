@@ -1,7 +1,7 @@
 {
   "name": "letz-tools",
   "owner": {
-    "name": "Marc Roth"
+    "name": "Pierre Roth"
   },
   "description": "LëtzTools: Luxembourgish writing help for Claude.",
   "plugins": [
@@ -10,9 +10,13 @@
       "displayName": "LëtzTools",
       "source": "./",
       "description": "Better Luxembourgish writing with spellchecker.lu, LOD and the official orthography guide.",
-      "version": "0.1.4",
+      "version": "0.1.5",
       "category": "productivity",
-      "tags": ["luxembourgish", "writing", "spelling"]
+      "tags": [
+        "luxembourgish",
+        "writing",
+        "spelling"
+      ]
     }
   ]
 }
