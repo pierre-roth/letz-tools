@@ -42,6 +42,10 @@ allows outbound networking. No hosted backend is required or provisioned.
   `ok`: `check` (flags `den`→`de` and `Buhc`→`Buch`), `lookup`, `lookup --language fr`,
   `forms`, `rules` and `rule 6.1.1`. Tested on python.org Python 3.11 and Homebrew
   Python 3.14.
+- After pushing, `claude plugin marketplace add pierre-roth/letz-tools` and
+  `claude plugin install letz-tools@letz-tools` in a fresh isolated configuration
+  installed 0.1.4 from the private repository (using the developer's GitHub git
+  credentials). All six command forms returned `ok` from that installed copy.
 - A python.org macOS Python whose certificates were never installed previously
   failed TLS verification, which looked like an unreachable service. The client now
   falls back to the operating system's CA bundle only when Python has none, with
