@@ -60,6 +60,7 @@ def main():
     manifest = json.loads((ROOT / 'plugin.json').read_text())
     (plugin / 'plugin.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     copy_tree(ROOT / '.codex-plugin', plugin / '.codex-plugin')
+    copy_tree(ROOT / 'assets', plugin / 'assets')
     claude = stage / 'claude'
     copy_tree(skill, claude / SKILL.name)
     (ROOT / 'dist').mkdir(exist_ok=True)
