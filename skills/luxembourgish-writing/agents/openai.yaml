@@ -1,0 +1,6 @@
+interface:
+  display_name: "LëtzTools"
+  short_description: "Write better Luxembourgish with official sources"
+  default_prompt: "Use $luxembourgish-writing to write or improve this Luxembourgish text, checking spelling, LOD usage and relevant official orthography rules."
+policy:
+  allow_implicit_invocation: true
