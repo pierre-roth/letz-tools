@@ -9,14 +9,17 @@ orthography guide.
 
 ## Install from GitHub
 
-- **ChatGPT (workspaces):** a workspace admin opens **Admin Console › Plugins › Add › Import marketplace**
-  and enters `https://github.com/pierre-roth/letz-tools` as the source. Leave **Path**
-  and **Branch** blank. After import, workspace members install **LëtzTools** from
-  **Plugins**. [OpenAI import guide](https://help.openai.com/en/articles/20001504-importing-and-syncing-plugin-marketplaces-from-github)
+- **ChatGPT desktop:** open **Plugins › Add › Add a marketplace**. Paste
+  `https://github.com/pierre-roth/letz-tools` into **Source** and leave the other
+  fields blank. Open the marketplace, select **Install** next to **LëtzTools**,
+  and use it in **Work** or **Codex** on that computer.
 - **Claude (chat and Cowork):** open **Customize › Plugins**, choose **Add marketplace**,
   enter `pierre-roth/letz-tools`, then install **LëtzTools**. On Team and Enterprise
   plans, an owner can add it for everyone under **Organization settings › Plugins & skills**.
 - **Claude Code:** `/plugin install letz-tools --marketplace pierre-roth/letz-tools`
+
+For a **ChatGPT workspace**, an admin can [import the same marketplace from GitHub](https://help.openai.com/en/articles/20001504-importing-and-syncing-plugin-marketplaces-from-github)
+so colleagues can install LëtzTools from **Plugins**.
 
 Try: “Improve this Luxembourgish email without changing its meaning.”
 
