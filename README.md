@@ -28,4 +28,4 @@ No server or API key to set up. Live checks you authorize send words or lookups 
 reach them, allow these sites under **Settings › Capabilities**, or ask your
 administrator.
 
-[Support](https://github.com/pierre-roth/letz-tools/issues) · [Privacy](https://github.com/pierre-roth/letz-tools/blob/main/docs/PRIVACY.md) · [Terms](https://github.com/pierre-roth/letz-tools/blob/main/docs/TERMS.md)
+[Privacy](https://github.com/pierre-roth/letz-tools/blob/main/docs/PRIVACY.md) · [Terms](https://github.com/pierre-roth/letz-tools/blob/main/docs/TERMS.md)
