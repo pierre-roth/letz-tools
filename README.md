@@ -17,9 +17,8 @@ orthography guide.
   enter `pierre-roth/letz-tools`, then install **LëtzTools**. On Team and Enterprise
   plans, an owner can add it for everyone under **Organization settings › Plugins & skills**.
 - **Claude Code:** `/plugin install letz-tools --marketplace pierre-roth/letz-tools`
-
-For a **ChatGPT workspace**, an admin can [import the same marketplace from GitHub](https://help.openai.com/en/articles/20001504-importing-and-syncing-plugin-marketplaces-from-github)
-so colleagues can install LëtzTools from **Plugins**.
+- **ChatGPT workspaces:** an admin can [import the same marketplace from GitHub](https://help.openai.com/en/articles/20001504-importing-and-syncing-plugin-marketplaces-from-github)
+  so colleagues can install **LëtzTools** from **Plugins**.
 
 Try: “Improve this Luxembourgish email without changing its meaning.”
 
