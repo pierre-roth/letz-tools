@@ -10,7 +10,7 @@
       "displayName": "LëtzTools",
       "source": "./",
       "description": "Better Luxembourgish writing with spellchecker.lu, LOD and the official orthography guide.",
-      "version": "0.1.5",
+      "version": "0.1.7",
       "category": "productivity",
       "tags": [
         "luxembourgish",

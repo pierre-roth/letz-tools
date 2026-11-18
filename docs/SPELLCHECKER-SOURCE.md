@@ -11,6 +11,11 @@ The adapter uses the same public backing service:
 in batches of at most 200 distinct tokens. It requests ranked suggestions through
 `GET https://lod.lu/api/lb/spellchecker/suggestions/{word}` only for spelling flags.
 It neither submits corrections nor calls editor replacement logging endpoints.
+The spelling routes are listed in the [public API documentation](https://lod.lu/api/doc).
+The [publisher's open-data record](https://data.public.lu/en/datasets/letzebuerger-online-dictionnaire-lod-public-api/)
+identifies the LOD data as CC0. The adapter makes task-specific requests to the
+documented API; it does not crawl the dictionary, bypass service limits, or
+redistribute the orthography guide.
 
 For each occurrence, a false `correct` field produces a spelling flag. Otherwise,
 the browser flags an n-rule case when the current form is applicable and the

@@ -10,13 +10,17 @@
         "capabilities": [],
         "category": "Productivity",
         "defaultPrompt": [
-          "Verbesser dësen Text, ouni de Sënn ze änneren.",
-          "Schreif mir eng professionell E-Mail op Lëtzebuergesch.",
-          "Erklär dës Schreifweis mat enger offizieller Quell."
+          "Proofread this Luxembourgish text without changing its meaning.",
+          "Draft a professional email in Luxembourgish.",
+          "Explain this Luxembourgish spelling and cite the relevant rule."
         ],
         "developerName": "Pierre Roth",
         "displayName": "LëtzTools",
-        "longDescription": "Write, translate and improve Luxembourgish emails and documents with live spelling checks, the official LOD dictionary and source-linked orthography rules. No separate account, API key or LëtzTools server.",
+        "longDescription": "Write, translate and improve Luxembourgish emails and documents. LëtzTools reviews spelling in context, checks word usage and explains orthography with citations. With your permission, live spelling and dictionary checks send eligible words or queries to LOD. LëtzTools is an independent project.",
+        "websiteURL": "https://github.com/pierre-roth/letz-tools",
+        "supportURL": "https://github.com/pierre-roth/letz-tools/issues",
+        "privacyPolicyURL": "https://github.com/pierre-roth/letz-tools/blob/main/docs/PRIVACY.md",
+        "termsOfServiceURL": "https://github.com/pierre-roth/letz-tools/blob/main/docs/TERMS.md",
         "shortDescription": "Better Luxembourgish writing",
         "logo": "./assets/icon.png",
         "logoDark": "./assets/icon-dark.png",
@@ -28,5 +32,5 @@
     }
   },
   "name": "letz-tools",
-  "version": "0.1.5"
+  "version": "0.1.7"
 }
