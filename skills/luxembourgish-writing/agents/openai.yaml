@@ -4,6 +4,6 @@ interface:
   icon_large: "./assets/letztools-icon-on-light.svg"
   brand_color: "#2459cf"
   short_description: "Write better Luxembourgish with official sources"
-  default_prompt: "Use $luxembourgish-writing to write or improve this Luxembourgish text, checking spelling, LOD usage and relevant official orthography rules."
+  default_prompt: "Use $luxembourgish-writing to improve this Luxembourgish text without changing its meaning."
 policy:
   allow_implicit_invocation: true

@@ -23,7 +23,7 @@
     "brandColorDark": "#a0bfff"
   },
   "name": "letz-tools",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Luxembourgish writing help with spellchecker.lu, LOD and the official orthography guide, without a hosted backend.",
   "author": {
     "name": "Pierre Roth"

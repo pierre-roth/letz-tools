@@ -1,7 +1,7 @@
 {
   "name": "letz-tools",
   "displayName": "LëtzTools",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Write, translate and improve Luxembourgish emails and documents with live spellchecker.lu checks, the official LOD dictionary and the official orthography guide. No account, API key or LëtzTools server.",
   "author": {
     "name": "Pierre Roth"
